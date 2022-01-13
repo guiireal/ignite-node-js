@@ -1,3 +1,4 @@
+import { IUseCase } from "../../../../interfaces/IUseCase";
 import { ICategoryRepository } from "../../repositories/ICategoryRepository";
 
 interface IRequest {
@@ -5,7 +6,7 @@ interface IRequest {
   description: string;
 }
 
-export class CreateCategoryUseCase {
+export class CreateCategoryUseCase implements IUseCase {
   constructor(private categoryRepository: ICategoryRepository) {}
 
   execute({ name, description }: IRequest): void {

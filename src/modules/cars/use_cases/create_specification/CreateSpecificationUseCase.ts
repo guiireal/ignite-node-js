@@ -1,3 +1,4 @@
+import { IUseCase } from "../../../../interfaces/IUseCase";
 import { ISpecificationRepository } from "../../repositories/ISpecificationRepository";
 
 interface IRequest {
@@ -5,7 +6,7 @@ interface IRequest {
   description: string;
 }
 
-export class CreateSpecificationUseCase {
+export class CreateSpecificationUseCase implements IUseCase {
   constructor(private specificationRepository: ISpecificationRepository) {}
 
   execute({ name, description }: IRequest): void {
