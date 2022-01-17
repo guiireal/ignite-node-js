@@ -1,12 +1,12 @@
 import { IUseCase } from "../../../../interfaces/IUseCase";
 import { ICategoryRepository } from "../../../cars/repositories/ICategoryRepository";
-import { Category } from "../../model/Category";
+import { Category } from "../../entities/Category";
 
 export class ListCategoriesUseCase implements IUseCase {
   constructor(private categoryRepository: ICategoryRepository) {}
 
-  execute(): Category[] {
-    const categories = this.categoryRepository.all();
+  async execute(): Promise<Category[]> {
+    const categories = await this.categoryRepository.all();
     return categories;
   }
 }
