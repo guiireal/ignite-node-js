@@ -3,14 +3,19 @@ import fs from "fs";
 import { parse } from "csv-parse";
 
 import { IUseCase } from "../../../../interfaces/IUseCase";
+import { inject, injectable } from "tsyringe";
 
 interface IImportCategory {
   name: string;
   description: string;
 }
 
+@injectable()
 export class ImportCategoryUseCase implements IUseCase {
-  constructor(private categoryRepository: ICategoryRepository) {}
+  constructor(
+    @inject("CategoryRepository")
+    private categoryRepository: ICategoryRepository
+  ) {}
 
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
