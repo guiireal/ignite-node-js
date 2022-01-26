@@ -1,11 +1,9 @@
 {
     "type": "postgres",
     "host": "localhost",
-    "production_host": "localhost",
-    "docker_host": "172.20.0.2",
     "port": 5432,
     "username": "postgres",
-    "password": "postgres",
+    "password": "150793",
     "database": "rentx",
     "entities": [
         "./src/modules/cars/entities/*.ts",
