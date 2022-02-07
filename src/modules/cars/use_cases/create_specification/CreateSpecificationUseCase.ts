@@ -1,3 +1,4 @@
+import { AppError } from "../../../../errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 import { IUseCase } from "../../../../interfaces/IUseCase";
@@ -20,7 +21,7 @@ export class CreateSpecificationUseCase implements IUseCase {
       await this.specificationRepository.findByName(name);
 
     if (specificationAlreadyExists) {
-      throw new Error("Specification already exists");
+      throw new AppError("Specification already exists");
     }
 
     await this.specificationRepository.create({ name, description });

@@ -1,3 +1,4 @@
+import { AppError } from "../../../../errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 import { IUseCase } from "../../../../interfaces/IUseCase";
@@ -21,7 +22,7 @@ export class CreateCategoryUseCase implements IUseCase {
     );
 
     if (categoryAlreadyExists) {
-      throw new Error("Category already exists");
+      throw new AppError("Category already exists");
     }
 
     await this.categoryRepository.create({ name, description });
