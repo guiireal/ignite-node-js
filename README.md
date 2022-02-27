@@ -1,4 +1,4 @@
-# Clean Architecture in Typescript
+# Ignite Node.js
 
 Entrar em um container docker no modo interativo:
 
